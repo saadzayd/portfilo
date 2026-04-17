@@ -550,6 +550,65 @@
   @media(max-width:600px) {
     .skills-grid { grid-template-columns:1fr; }
   }
+/* ── PHOTO ── */
+  .hero-photo-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero-photo-frame {
+    position: relative;
+    width: 340px;
+    height: 420px;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  .hero-photo-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--gold);
+    z-index: 3;
+    pointer-events: none;
+  }
+  .hero-photo-frame::after {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    right: -14px;
+    bottom: -14px;
+    border: 1px solid var(--gold-dim);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: grayscale(20%) contrast(1.05);
+    position: relative;
+    z-index: 1;
+  }
+  .photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(8,8,7,0.5) 100%);
+    z-index: 2;
+  }
+  .about-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  @media(max-width:900px) {
+    .about-grid-3 { grid-template-columns: 1fr; }
+    .hero-photo-frame { width: 260px; height: 320px; }
+  }
+ 
 </style>
 </head>
 <body>
@@ -631,31 +690,16 @@
         <p>My work spans mobile and web development  with <strong>Flutter and JavaScript</strong>, cloud-powered backends with <strong>Firebase &amp; Google Cloud</strong>, and data analytics with <strong>Power BI &amp; Python</strong>. I build products that are fast, bilingual, and built to scale.</p>
         <p>I believe great software is built at the intersection of technical precision and user empathy — and that's exactly where I work.</p>
       </div>
-    <div class="hero-photo-wrap reveal">
-            <div class="hero-photo-frame">
-            <img src="
-      <div class="about-contacts reveal">
-        <div class="contact-item">
-          <span class="contact-icon">✉</span>
-          <a href="mailto:saad.zaid@univ-msila.dz">saad.zaid@univ-msila.dz</a>
+            <div class="hero-photo-wrap reveal">
+        <div class="hero-photo-frame">
+          <img src="pic.png" class="hero-photo"/>
+          <div class="photo-overlay"></div>
         </div>
-        <div class="contact-item">
-          <span class="contact-icon">☎</span>
-          <span>+213 552 896 422</span>
-        </div>
+      </div>
         <div class="contact-item">
           <span class="contact-icon">◉</span>
           <span>bousaada / M'sila, Algeria</span>
         </div>
-        <div class="contact-item">
-          <span class="contact-icon">⌥</span>
-          <a href="https://github.com/saadzayd" target="_blank">github.com/saadzayd</a>
-        </div>
-        <div class="contact-item">
-          <span class="contact-icon">in</span>
-          <a href="https://linkedin.com/in/zayd-saad-472255390/" target="_blank">linkedin.com/in/zayd-saad</a>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -802,6 +846,7 @@
     <div class="socials reveal">
       <a href="https://github.com/saadzayd" target="_blank" class="social-link">GitHub</a>
       <a href="https://linkedin.com/in/zayd-saad-472255390/" target="_blank" class="social-link">LinkedIn</a>
+      <a href="https://wa.me/213552896422" target="_blank" class="social-link">WhatsApp</a>
       <a href="tel:+213552896422" class="social-link">+213 552 896 422</a>
     </div>
     <div class="footer-line reveal">
